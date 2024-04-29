@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body style="background-color: teal;">
+
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">CSS Generator</a>
+            </div>
+        </nav> 
+          <br>
+
+          <div class="row">
+            <div class="col-sm-12">
+                <p class="h3 text-center" id="ptag" style="background-color: white;">Hello</p>
+            </div>
+        </div><br>
+    <div class="container"> 
+        
+        <div class="row align-items-start">
+            <div class="col-sm-6">
+                    <select class="form-select" aria-label="Default select example" onchange="changeColor(this)" id="color" >
+                        <option selected>select the color</option>
+                        <option value="Magenta">Magenta</option>
+                        <option value="Olive">Olive</option>
+                        <option value="Tan">Tan</option>
+                        <option value="rosybrown">Rosybrown</option>
+                    </select>
+            </div> 
+
+            <div class="col-sm-6">
+                <select class="form-select" aria-label="Default select example" onchange="changeBackgroundColor(this)" id="bgcolor" >
+                    <option selected>select the background color</option>
+                    <option value="Magenta">Magenta</option>
+                    <option value="Olive">Olive</option>
+                    <option value="Tan">Tan</option>
+                    <option value="khaki">khaki</option>
+                </select>
+            </div>
+
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <input type="number" class="form-control" placeholder="font-size" onblur="changeFontsize(this)" id="fontsizechange">
+            </div>
+            <div class="col-sm-6">
+                <select class="form-select" aria-label="Default select example" onchange="border(this)" id="border" >
+                    <option selected>select the border</option>
+                    <option value="dotted">Dotted</option>
+                    <option value="dashed">Dashed</option>
+                    <option value="groove">Groove</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-4">
+                <input type="number" class="form-control" placeholder="Margin" onblur="margin(this)" id="margin">
+            </div>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" placeholder="padding" onblur="padding(this)" id="padding">
+            </div>
+            <div class="col-sm-4">
+                <select class="form-select" aria-label="Default select example" onchange="borderColor(this)" id="bordercolor" >
+                    <option selected>select the border color</option>
+                    <option value="Magenta">Magenta</option>
+                    <option value="purple">Purple</option>
+                    <option value="Brown">Brown</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        
+        
+
+        <label for="textshadow" class="col-sm-2 col-form-label">Text Shadow :</label>
+
+        <div class="row">
+
+            <div class="col-sm-3">
+                <input type="number" class="form-control" placeholder="px" id="px1">
+            </div>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" placeholder="px" id="px2">
+            </div>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" placeholder="px" id="px3">
+            </div>
+            <div class="col-sm-3">
+                <select class="form-select" aria-label="Default select example" onchange="textShadow(this)" id="shadowcolor" >
+                    <option selected>select the shadow color</option>
+                    <option value="green">Green</option>
+                    <option value="gray">Gray</option>
+                    <option value="red">Red</option>
+                </select>
+            </div>
+        </div><br>
+        <label for="textshadow" class="col-sm-2 col-form-label">Gradient :</label>
+
+        <div class="row">
+
+            <!-- <div class="col-sm-3">
+                <input type="number" class="form-control" placeholder="px" id="px4">
+            </div>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" placeholder="px" id="px5">
+            </div>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" placeholder="px" id="px6">
+            </div> -->
+            <div class="col-sm-3">
+                <select class="form-select" aria-label="Default select example" onchange="gradient(this)" id="gradient" >
+                    <option selected>select the gradient color</option>
+                    <option value="tan,olive">Tan-Olive</option>
+                    <option value="gray,black">Gray-Black</option>
+                    <option value="red,black">Red-Black</option>
+                    <option value="khaki,rosybrown">Khaki-Rosybrown</option>
+                </select>
+            </div>
+        </div><br>
+
+
+    </div>
+    
+
+    <center><button type="button" class="btn btn-secondary" id="button1" onclick="CopyToClipboard('div1')">Click to copy</button>
+    <br /><br />
+    <div id="div1"><div class="row">
+        <div class="col-sm-12">
+            <p class="h3 text-center" id="result"></p>
+        </div>
+    </div> </div>
+    <br />
+    </center>
+
+    </body>
+</html>
+<script>
+   
+   var stylesheet  = ''
+function changeColor(e)
+{
+    document.getElementById('ptag').style.color = e.value
+    document.getElementById('result').innerHTML = stylesheet += " Color : " + e.value + "<br>"
+}
+function changeBackgroundColor(e)
+{
+    document.getElementById('ptag').style.backgroundColor  = e.value
+    document.getElementById('result').innerHTML = stylesheet += " Background : " + e.value + "<br>"
+}
+function changeFontsize(e)
+{
+    document.getElementById('ptag').style.fontSize = e.value + "px"
+    document.getElementById('result').innerHTML = stylesheet += " Font-size : " + e.value + "<br>"
+}
+function border(e)
+{
+    document.getElementById('ptag').style.border = e.value
+    document.getElementById('result').innerHTML = stylesheet += " Border : " + e.value + "<br>"
+}
+function borderColor(e)
+{
+    document.getElementById('ptag').style.borderColor = e.value
+    document.getElementById('result').innerHTML = stylesheet += " Border color : " + e.value + "<br>"
+}
+function margin(e)
+{
+    document.getElementById('ptag').style.margin = e.value + "px"
+    document.getElementById('result').innerHTML = stylesheet += " Margin : " + e.value + "<br>"
+}
+function padding(e)
+{
+    document.getElementById('ptag').style.padding = e.value + "px"
+    document.getElementById('result').innerHTML = stylesheet += " Padding : " + e.value + "<br>"
+}
+function textShadow(e)
+{
+    var px1 = document.getElementById('px1').value 
+    var px2 = document.getElementById('px2').value 
+    var px3 = document.getElementById('px3').value 
+    document.getElementById('ptag').style.textShadow = `${px1}px ${px2}px ${px3}px ${e.value}`
+    document.getElementById('result').innerHTML = stylesheet += " Text shadow : " + e.value + "<br>"
+}
+function gradient(e)
+{
+    document.getElementById('ptag').style.background = `linear-gradient(${e.value})`
+    document.getElementById('result').innerHTML = stylesheet += " Gradient : " + e.value + "<br>"
+}
+
+// copy content
+function CopyToClipboard(containerid) {
+    if (document.selection) {
+      var range = document.body.createTextRange();
+      range.moveToElementText(document.getElementById(containerid));
+      range.select().createTextRange();
+      document.execCommand("copy");
+    } else if (window.getSelection) {
+      var range = document.createRange();
+      range.selectNode(document.getElementById(containerid));
+      window.getSelection().addRange(range);
+      document.execCommand("copy");
+      alert("Text has been copied, now paste in the text-area")
+    }
+  }
+
+
+    
+</script>
+
+
+
